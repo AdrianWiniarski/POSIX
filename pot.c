@@ -29,10 +29,11 @@ int fifo_save, fifo_save2, fdes, fdes2;
   fdes2 = open("FIFO2", O_RDWR);
 
   read(fdes, &pr, sizeof(pr));
+ while(1){
   if(pr.result != 0){
 	close(fdes);
         close(fdes2);
-  	exit(0);
+  	exit(1);
   }
   for(i = pr.begin; i<pr.end; ++i){
 	p = pierwsza(i);
@@ -42,9 +43,7 @@ int fifo_save, fifo_save2, fdes, fdes2;
   } 
   pr.result = count;
   write(fdes2, &pr, sizeof(pr));
-  close(fdes);
-  close(fdes2);
-  exit(1); 
+  } 
 } 
 
 int pierwsza(int n) 

@@ -15,6 +15,13 @@ typedef struct {
 } prime; 
 
 void main(int argc, char* argv[]){ 
+  
+  if(argc != 5){
+  	printf("zle wywolanie!\n");
+	printf("/main [pocz_przedzialu] [koniec_przedzialu] [ilosc_procesow] [podzial_liczb_pierwszych]\n");
+	exit(5);
+  }
+  
   prime pr, rr;
   int pid, status, i, total;
   int fifo_file, fifo_save2, fdes, fdes2;
@@ -30,9 +37,9 @@ void main(int argc, char* argv[]){
   fdes2 = open("FIFO2", O_RDWR);	
 
  //zapis do kolejki
-	for(i=0; i<atoi(argv[3]); ++i){
+	for(i=0; i<atoi(argv[3])*atoi(argv[4]); ++i){
 		pr.begin = st+(i*ct);
-		if(i+1 == atoi(argv[3])){
+		if(i+1 == atoi(argv[3])*atoi(argv[4])){
 			pr.end = en + 1;
 		}else{
 			pr.end = st+(i*ct)+ct;
