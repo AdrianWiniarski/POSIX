@@ -7,7 +7,9 @@
 Program z zajęć:
 Po kompilacji należy podać kolejno jak w przykładzie:
 
-./main (początek przedziału) (koniec przedziału) (ilość procesów)
+./main (początek przedziału) (koniec przedziału) (ilość procesów) (podział przedziałów)
+
 np.
-./main 1 1000 3
+
+./main 1 1000 3 5
 
